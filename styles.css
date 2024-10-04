@@ -62,18 +62,35 @@ nav a:hover {
 }
 
 .video-container {
+    position: relative;
     width: 640px;
     height: 360px;
-    overflow: hidden; /* Скрыть полосы прокрутки */
+    overflow: hidden; /* Убираем полосы прокрутки */
     border-radius: 15px; /* Закругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень для красоты */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
 }
 
 .video-container iframe {
     width: 100%;
     height: 100%;
-    border: none; /* Убирает рамку */
     border-radius: 15px; /* Закругленные углы плеера */
+    border: none; /* Убираем рамку */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0); /* Прозрачный фон */
+    pointer-events: none; /* Игнорируем события указателя */
+}
+
+/* Добавляем прозрачный overlay при наведении */
+.video-container:hover .overlay {
+    background: rgba(255, 255, 255, 0); /* Прозрачный при наведении */
+    pointer-events: all; /* Активируем события указателя */
 }
 
 ul {
