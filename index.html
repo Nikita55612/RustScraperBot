@@ -3,24 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Минималистичный видеоплеер</title>
+    <title>RustScraper</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Project Documentation</title>
+    <link rel="icon" type="image/png" href="static/logo.png" sizes="32x32">
+    <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="styles.css">
     <style>
 
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video id="myVideo" autoplay loop muted playsinline>
-            <source src="https://nikita55612.github.io/rust-scraper-docs/static/demo.mp4" type="video/mp4">
-            Ваш браузер не поддерживает тег video.
-        </video>
+    <div id="sidebar">
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Услуги</a>
+        <a href="#">Контакты</a>
+    </div>
+    <div id="page">
+        <div class="menu-bar" style="top: 0px;">
+            <div class="left-buttons">
+                <label onclick="toggleSidebar()" id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="false">
+                    <svg class="w-[26px] h-[26px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                    </svg>
+                      
+                </label>
+            </div>
+            <h1 class="menu-title">RustScraper</h1>
+            <div class="right-buttons">
+            </div>
+        </div>
+    
+        <div class="content">
+            <div class="info-content-block content-block">
+                <p>RustScraper - это мощный инструмент для автоматизированного мониторинга товаров на различных торговых площадках. Он предоставляет пользователям возможность быть в курсе всех изменений, происходящих с интересующими их товарами, без необходимости постоянного ручного отслеживания.</p>
+                <h2>Как это работает</h2>
+                <ol>
+                    <li>Загрузка данных: Пользователь добавляет в бота таблицы с информацией о товарах, которые его интересуют.</li>
+                    <li>Умный парсинг: Бот начинает автоматически отслеживать эти товары на различных торговых площадках.</li>
+                    <li>Мгновенные уведомления: По окончании парсинга бот присылает уведомления об обновлении товаров.</li>
+                    <li>Доступ к данным: Загрузка актуальных данных в графиках и таблицах.</li>
+                </ol> 
+            </div>
+            <div class="video-content-block content-block">
+                <video id="demo-video" autoplay loop muted playsinline>
+                    <source src="static/demo.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает тег video.
+                </video>
+            </div>
+        </div>
     </div>
 
-    <script>
-        document.getElementById('myVideo').play();
-    </script>
+    <script src="main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

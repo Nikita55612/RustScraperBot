@@ -1,21 +1,108 @@
+:root {
+    --bg: #131516;
+    --fg: #98a3ad;
+    --ig: #43484D;
+    --sbg: #292C2F;
+    --lh: #3473AD;
+}
+
+html {
+    font-family: "Open Sans", sans-serif;
+    color: var(--fg);
+    background-color: var(--bg);
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    font-weight: 600;
+}
+
 body {
-    background-color: #1a1a1a; /* Тёмный фон для лучшей видимости эффекта */
     height: 100vh;
     margin: 0;
 }
 
-.video-container {
-    width: 100%;
-    max-width: 600px;
-    overflow: hidden;
-    border-radius: 14px;
-    animation: glowAnimation 3s ease-in-out infinite alternate;
+svg { color: var(--ig); }
+svg:hover { 
+    color: var(--fg); 
+    transition: 1.0s;
 }
-#myVideo {
+
+h2, h3 { margin-top: 1.5em; }
+h4, h5 { margin-top: 0.7em; }
+
+p, ol, ul { line-height: 1.5em; }
+a { text-decoration: none; }
+
+#sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px;
+    background-color: var(--sbg);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#sidebar.open {
+    left: 0;
+}
+
+#sidebar a {
+    padding: 8px 8px 8px 28px;
+    color: var(--fg);
+    display: block;
+    transition: 0.3s;
+}
+
+#sidebar a:hover {
+    color: var(--lh);
+}
+
+#page {
+    transition: margin-left .5s;
+}
+
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 14px;
+    gap: 8px;
+}
+
+.menu-title {
+    font-family: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
+    font-size: 26px;
+    line-height: 0px;
+    font-weight: 100;
+    color: var(--ig);
+}
+
+.content {
+    margin: auto;
+    max-width: 956px;
+    padding: 0 28px;
+    margin-top: 42px;
+}
+
+.content-block {
+    margin-bottom: 42px;
+}
+
+.video-content-block {
+    width: 74%;
+    margin: auto;
+}
+
+video {
     width: 100%;
     height: auto;
-    display: block;
+    border-radius: 12px;
 }
+
 video::-webkit-media-controls {
     display: none !important;
 }
@@ -23,11 +110,3 @@ video::-webkit-media-controls-enclosure {
     display: none !important;
 }
 
-@keyframes glowAnimation {
-    0% {
-        box-shadow: 0 0 14px 6px rgba(251, 255, 254, 0.12);
-    }
-    100% {
-        box-shadow: 0 0 14px 6px rgba(160, 160, 160, 0.12);
-    }
-}
