@@ -102,7 +102,7 @@ button:hover {
     background-color: var(--sbg);
     overflow-x: hidden;
     transition: left 0.5s;
-    padding-top: 60px;
+    padding-top: 52px;
 }
 
 #sidebar.open {
@@ -125,11 +125,6 @@ button:hover {
 
 #sidebar ol {
     padding-left: 28px;
-}
-
-.sidebar-toggle {
-    display: flex;
-    align-items: center;
 }
 
 #page {
@@ -308,8 +303,11 @@ table tr:first-child th:first-child {
 /* Мобильная адаптация */
 @media (max-width: 768px) {
     #sidebar {
-        width: 180px;
-        left: -180px;
+        padding-top: 42px;
+    }
+
+    #sidebar li {
+        padding: 5px 0;
     }
 
     .content {
@@ -339,4 +337,13 @@ table tr:first-child th:first-child {
     #notifications-img {
         width: 100%;
     }
+
+    .logos-versions {
+        gap: 21px;
+    }
+
+    .logos-versions img {
+        width: 74px;
+    }
 }
+
