@@ -11,9 +11,9 @@ html {
     color: var(--fg);
     background-color: var(--bg);
     text-size-adjust: none;
-    -webkit-text-size-adjust: none;
     font-weight: 500;
     scroll-behavior: smooth;
+    hyphens: auto; 
 }
 
 body {
@@ -26,41 +26,48 @@ svg {
     cursor: pointer;
     color: var(--ig);
     fill: var(--ig); 
-}
-svg:hover { 
-    color: var(--fg);
-    fill: var(--fg); 
-    transition: 1.0s;
+    transition: color 1.0s, fill 1.0s;
 }
 
-h2, h3 { margin-top: 1.5em; }
-h4, h5 { margin-top: 0.7em; }
-p, ol, ul { line-height: 1.5em; }
-a { 
-    text-decoration: none; 
+svg:hover {
+    color: var(--fg);
+    fill: var(--fg);
+}
+
+h2, h3 {
+    margin-top: 1.5em;
+}
+
+h4, h5 {
+    margin-top: 0.7em;
+}
+
+p, ol, ul {
+    line-height: 1.5em;
+}
+
+a {
+    text-decoration: none;
     color: var(--lh);
 }
-ol { padding-left: 28px;}
 
 button {
-    padding: 4px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    text-decoration: none;
     background-color: var(--sbg);
     color: var(--lh);
     border: none;
     font-size: 16px;
     font-weight: 600;
     border-radius: 9px;
-    padding: 10px;
+    transition: color 1.0s;
 }
 
 button:hover {
     color: var(--fg);
-    transition: 1.0s;
 }
 
 .shift-block {
@@ -90,12 +97,11 @@ button:hover {
     height: 100%;
     width: 220px;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: -220px;
     background-color: var(--sbg);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: left 0.5s;
     padding-top: 60px;
 }
 
@@ -105,15 +111,20 @@ button:hover {
 
 #sidebar li {
     cursor: pointer;
-    padding: 8px 0px 8px 0px;
+    padding: 8px 0;
     color: var(--fg);
-    display: block;
-    transition: 0.3s;
     font-weight: 700;
+    transition: color 0.3s;
+    display: block;
+    width: 142px;
 }
 
 #sidebar li:hover {
     color: var(--lh);
+}
+
+#sidebar ol {
+    padding-left: 28px;
 }
 
 .sidebar-toggle {
@@ -122,7 +133,7 @@ button:hover {
 }
 
 #page {
-    transition: margin-left .5s;
+    transition: margin-left 0.5s;
 }
 
 .menu-bar {
@@ -138,20 +149,18 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 14px;
-    
 }
 
 .menu-title {
-    cursor: default;
     font-size: 26px;
-    line-height: 0px;
+    cursor: default;
 }
 
 .content {
     margin: auto;
     max-width: 900px;
     padding: 0 28px;
-    margin-top: 32px;
+    margin-top: 28px;
 }
 
 .content-block {
@@ -159,7 +168,7 @@ button:hover {
 }
 
 .mono-font {
-    font-family: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
+    font-family: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace;
     font-weight: 100;
     color: var(--ig);
 }
@@ -188,19 +197,12 @@ video {
     border-radius: 9px;
 }
 
-video::-webkit-media-controls {
-    display: none !important;
-}
-video::-webkit-media-controls-enclosure {
-    display: none !important;
-}
-
 .content-block table {
     padding-left: 28px;
 }
 
 .min-t {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 table {
@@ -215,33 +217,27 @@ th, td {
     padding: 9px;
 }
 
-  
 table tr td:first-child, 
 table tr th:first-child {
-  border-left: 1px solid var(--fg);
+    border-left: 1px solid var(--fg);
 }
-
 
 table tr th {
     border-top: 1px solid var(--fg);
 }
 
-
 table tr:last-child td:last-child {
     border-bottom-right-radius: 9px;
 }
 
-  
 table tr:last-child td:first-child {
     border-bottom-left-radius: 9px;
 }
-  
-  
+
 table tr:first-child th:last-child {
     border-top-right-radius: 9px;
 }
-  
-  
+
 table tr:first-child th:first-child {
     border-top-left-radius: 9px;
 }
@@ -252,15 +248,95 @@ table tr:first-child th:first-child {
     gap: 18px;
 }
 
+.contact-icons {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .avatar {
     border-radius: 50%;
     width: 90px;
 }
-  
-  
-  
-  
 
+#info-video {
+    width: 410px;
+    height: auto;
+}
 
+.hyperlink {
+    color: var(--lh);
+    cursor: pointer;
+}
 
+.items-description b {
+    color: var(--lh);
+}
 
+.image-content {
+    width: 100%;
+    border-radius: 9px;
+}
+
+#notifications-img {
+    margin: auto;
+    width: 620px;
+}
+
+.image-content-block {
+    display: flex;
+}
+
+.logos-versions {
+    margin: 36px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.logos-versions img {
+    width: 120px;
+    border-radius: 50%;
+}
+
+.logos-versions div {
+    text-align: center;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 180px;
+        left: -180px;
+    }
+
+    .content {
+        padding: 0 16px;
+    }
+
+    .menu-title {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    #info-video {
+        width: 100%;
+    }
+
+    .menu-bar {
+        height: 40px;
+    }
+
+    #notifications-img {
+        width: 100%;
+    }
+}

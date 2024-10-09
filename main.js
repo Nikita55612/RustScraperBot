@@ -6,6 +6,18 @@ function setCssVariable(name, value) {
   root.style.setProperty(name, value);
 }
 
+function scrollToElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      console.error(`Элемент с id "${elementId}" не найден`);
+    }
+}
+
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     const main = document.getElementById("page");
@@ -15,6 +27,12 @@ function toggleSidebar() {
     } else {
         main.style.marginLeft = "0";
     }
+}
+
+function hyperlinkHandler(element) {
+    const path = element.getAttribute("hl-path");
+    const [page, elementId] = path.split('/');
+    scrollToElement(elementId);
 }
 
 function setPageContent(element) {
@@ -89,15 +107,19 @@ function downloadExcelTemplate() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('demo-video');
+    const videos = document.querySelectorAll('.auto-pause-video');
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                video.play();
+                entry.target.play();
             } else {
-                video.pause();
+                entry.target.pause();
             }
         });
     }, { threshold: 0.5 });
-    observer.observe(video);
+
+    videos.forEach(video => {
+        observer.observe(video);
+    });
 });
