@@ -303,7 +303,7 @@ table tr:first-child th:first-child {
 /* Мобильная адаптация */
 @media (max-width: 768px) {
     #sidebar {
-        padding-top: 42px;
+        padding-top: 28px;
     }
 
     #sidebar li {
@@ -324,6 +324,7 @@ table tr:first-child th:first-child {
 
     .contact-info {
         flex-direction: column;
+        gap: 13px;
     }
 
     #info-video {
@@ -344,6 +345,10 @@ table tr:first-child th:first-child {
 
     .logos-versions img {
         width: 74px;
+    }
+
+    .basement {
+        margin-top: 36px;
     }
 }
 
