@@ -21,17 +21,23 @@ function scrollToElement(elementId) {
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     const main = document.getElementById("page");
+    const menuBar = document.querySelector(".menu-bar");
+    
     sidebar.classList.toggle("open");
+    menuBar.classList.toggle("sidebar-open");
+    
     if (sidebar.classList.contains("open")) {
         main.style.marginLeft = "220px";
+        main.style.marginTop = "76px";
     } else {
         main.style.marginLeft = "0";
+        main.style.marginTop = "0";
     }
 }
 
 function hyperlinkHandler(element) {
     const path = element.getAttribute("hl-path");
-    const [page, elementId] = path.split('/');
+    const [_, elementId] = path.split('/');
     scrollToElement(elementId);
 }
 
@@ -48,8 +54,19 @@ function setPageContent(element) {
     }
 }
 
-function viewDetails() {
-
+function viewDetails(element) {
+    const itemID = element.getAttribute("details-item-id");
+    const item = document.getElementById(itemID);
+    const icon = element.querySelector("svg");
+    if (item.style.maxHeight) {
+        item.style.maxHeight = null;
+        item.style.opacity = "0";
+        icon.classList.remove("rotated");
+    } else {
+        item.style.maxHeight = item.scrollHeight + "px";
+        item.style.opacity = "1";
+        icon.classList.add("rotated");
+    }
 }
 
 function switchTheme() {
@@ -122,4 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         observer.observe(video);
     });
+
+    if (window.matchMedia('(min-width: 822px)').matches) {
+        toggleSidebar();
+    }
 });

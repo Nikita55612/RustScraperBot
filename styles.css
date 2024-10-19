@@ -138,6 +138,15 @@ button:hover {
     height: 48px;
     padding: 0 14px;
     gap: 8px;
+    background-color: var(--bg);
+}
+
+.menu-bar.sidebar-open {
+    position: fixed;
+    top: 0;
+    left: 220px;
+    right: 0;
+    z-index: 1000;
 }
 
 .left-buttons {
@@ -276,7 +285,7 @@ table tr:first-child th:first-child {
 
 #notifications-img {
     margin: auto;
-    width: 620px;
+    width: 760px;
 }
 
 .image-content-block {
@@ -300,7 +309,49 @@ table tr:first-child th:first-child {
     text-align: center;
 }
 
-/* Мобильная адаптация */
+.hidden-details {
+    display: block;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.hidden-details.show {
+    opacity: 1;
+    max-height: 2000px;
+}
+
+.hyperlink svg {
+    height: 19px;
+    fill: var(--lh);
+}
+
+#down {
+    transition: transform 0.3s ease;
+}
+
+#down.rotated {
+    transform: rotate(180deg);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #ff7675, #74b9ff);
+    background-size: 200% 100%;
+    animation: moveGradient 7s infinite alternate;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
 @media (max-width: 768px) {
     #sidebar {
         padding-top: 28px;
