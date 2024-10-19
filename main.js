@@ -22,7 +22,7 @@ function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     const main = document.getElementById("page");
     const menuBar = document.querySelector(".menu-bar");
-    
+
     sidebar.classList.toggle("open");
     menuBar.classList.toggle("sidebar-open");
     
